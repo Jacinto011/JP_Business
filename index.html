@@ -3,379 +3,750 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JP Business - Soluções em Tecnologia</title>
-    <!-- Bootstrap 5 CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>JP Business • Tecnologia de Excelência</title>
+
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Hover.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css">
+
+    <!-- Swiper Carrossel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%232196F3'/><text x='50' y='60' font-family='Arial' font-size='40' text-anchor='middle' fill='white'>JP</text></svg>"
-        type="image/svg+xml">
+
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">JP BUSINESS</div>
+            <div class="preloader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Fixed -->
+    <a href="https://wa.me/258864005964" class="whatsapp-fixed" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Particles -->
+    <div id="particles-js"></div>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
         <div class="container">
-            <a class="navbar-brand" href="#">JP Business</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand hvr-grow" href="#">JP Business</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Serviços</a>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#founder">Fundador</a></li>
+                    <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#services">Serviços</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Sobre</a>
+                    <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#testimonials">Clientes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contato</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link hvr-underline-from-center" href="#contact">Contato</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Carrossel Full Width -->
-    <div id="serviceCarousel" class="carousel slide full-width-carousel" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#serviceCarousel" data-bs-slide-to="3"></button>
+    <!-- Hero Carrossel -->
+    <section id="home">
+        <div class="hero-carousel">
+            <div class="swiper swiper-hero">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide hero-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600')">
+                        <div class="hero-content">
+                            <div class="hero-badge animate__animated animate__fadeInDown">
+                                <i class="fas fa-rocket"></i> Inovação que Transforma
+                            </div>
+                            <h1 class="hero-title animate__animated animate__fadeInUp">
+                                Soluções <span class="hero-title-gradient">Tecnológicas</span> para o Futuro
+                            </h1>
+                            <p class="hero-subtitle animate__animated animate__fadeInUp">
+                                Desenvolvimento de software, websites, marketing digital e muito mais
+                            </p>
+                            <div class="hero-buttons">
+                                <button class="btn-glow hvr-bounce-in" data-bs-toggle="modal"
+                                    data-bs-target="#solicitarModal">
+                                    <i class="fas fa-bolt me-2"></i>Começar Agora
+                                </button>
+                                <a href="#services" class="btn-outline-glow hvr-icon-down">
+                                    Explorar Serviços <i class="fas fa-arrow-down ms-2 hvr-icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide hero-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600')">
+                        <div class="hero-content">
+                            <div class="hero-badge animate__animated animate__fadeInDown">
+                                <i class="fas fa-code"></i> Desenvolvimento Premium
+                            </div>
+                            <h1 class="hero-title animate__animated animate__fadeInUp">
+                                Websites e <span class="hero-title-gradient">Aplicações</span> Sob Medida
+                            </h1>
+                            <p class="hero-subtitle animate__animated animate__fadeInUp">
+                                React, WordPress, Mobile Apps e Sistemas Personalizados
+                            </p>
+                            <div class="hero-buttons">
+                                <button class="btn-glow hvr-bounce-in" data-bs-toggle="modal"
+                                    data-bs-target="#solicitarModal">
+                                    <i class="fas fa-code-branch me-2"></i>Solicitar Projeto
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide hero-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1600')">
+                        <div class="hero-content">
+                            <div class="hero-badge animate__animated animate__fadeInDown">
+                                <i class="fas fa-graduation-cap"></i> Educação Tecnológica
+                            </div>
+                            <h1 class="hero-title animate__animated animate__fadeInUp">
+                                Aulas de <span class="hero-title-gradient">Programação</span> e Tecnologia
+                            </h1>
+                            <p class="hero-subtitle animate__animated animate__fadeInUp">
+                                Python, Java, JavaScript, C++, Pacote Office e Automação com IA
+                            </p>
+                            <div class="hero-buttons">
+                                <button class="btn-glow hvr-bounce-in" data-bs-toggle="modal"
+                                    data-bs-target="#solicitarModal">
+                                    <i class="fas fa-calendar-check me-2"></i>Agendar Aula
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide hero-slide"
+                        style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=1600')">
+                        <div class="hero-content">
+                            <div class="hero-badge animate__animated animate__fadeInDown">
+                                <i class="fas fa-calendar-star"></i> Eventos Inesquecíveis
+                            </div>
+                            <h1 class="hero-title animate__animated animate__fadeInUp">
+                                Organização de <span class="hero-title-gradient">Eventos</span> e Cerimônias
+                            </h1>
+                            <p class="hero-subtitle animate__animated animate__fadeInUp">
+                                Convites, Protocolo, Fotografia e Coordenação Completa
+                            </p>
+                            <div class="hero-buttons">
+                                <button class="btn-glow hvr-bounce-in" data-bs-toggle="modal"
+                                    data-bs-target="#solicitarModal">
+                                    <i class="fas fa-glass-cheers me-2"></i>Planejar Evento
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+<!-- SEÇÃO MISSÃO, VISÃO E VALORES - LOGO CIRCULAR -->
+<!-- ============================================ -->
+<section id="mission" class="mission-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-down">
+            <span class="section-badge">
+                <i class="fas fa-bullseye me-2"></i>Nosso Propósito
+            </span>
+            <h2 class="section-title">
+                Missão, Visão e <span>Valores</span>
+            </h2>
+            <p class="section-subtitle">O que nos move e para onde vamos</p>
         </div>
 
-        <div class="carousel-inner">
-            <!-- Slide 1 - Suporte Técnico -->
-            <div class="carousel-item active"
-                style="background-image: url('https://image.freepik.com/free-photo/cpu-hand_128406-567.jpg')">
-                <div class="carousel-caption text-center">
-                    <h3>Suporte Técnico Profissional</h3>
-                    <p>Manutenção, formatação e upgrade de computadores</p>
-                    <a href="#contact" class="btn btn-primary btn-lg mt-3">Solicitar Serviço</a>
+        <!-- Logo Animado Central - CIRCULAR PERFEITO -->
+        <div class="logo-wrapper" data-aos="zoom-in" data-aos-duration="1500">
+            <div class="logo-animated">
+                <div class="logo-circle">
+                    <div class="logo-image-container">
+                        <img src="image/jp.png" alt="JP Business Logo" class="logo-image">
+                        <div class="logo-border"></div>
+                        <div class="logo-pulse"></div>
+                        <div class="logo-glow"></div>
+                    </div>
+                    <!-- Anel SVG externo -->
+                    <svg class="logo-ring" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="92" fill="none" stroke="url(#gradient)" stroke-width="3" stroke-dasharray="578" stroke-dashoffset="0">
+                            <animate attributeName="stroke-dashoffset" from="578" to="0" dur="3s" fill="freeze" />
+                        </circle>
+                        <circle cx="100" cy="100" r="86" fill="none" stroke="url(#gradient2)" stroke-width="1.5" stroke-dasharray="540" stroke-dashoffset="0" opacity="0.6">
+                            <animate attributeName="stroke-dashoffset" from="-540" to="0" dur="3s" fill="freeze" />
+                        </circle>
+                        <circle cx="100" cy="100" r="98" fill="none" stroke="url(#gradient3)" stroke-width="1" stroke-dasharray="615" stroke-dashoffset="0" opacity="0.3">
+                            <animate attributeName="stroke-dashoffset" from="615" to="0" dur="4s" fill="freeze" />
+                        </circle>
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="gradient3" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="logo-shine"></div>
+                <div class="logo-particles">
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
+                    <span class="particle"></span>
                 </div>
             </div>
-
-            <!-- Slide 2 - Desenvolvimento de Soluções -->
-            <div class="carousel-item"
-                style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')">
-                <div class="carousel-caption text-center">
-                    <h3>Desenvolvimento de Soluções</h3>
-                    <p>Sistemas personalizados para seu negócio</p>
-                    <a href="#contact" class="btn btn-primary btn-lg mt-3">Quero um Orçamento</a>
-                </div>
-            </div>
-
-            <!-- Slide 3 - Aulas Particulares -->
-            <div class="carousel-item"
-                style="background-image: url('https://thumbs.dreamstime.com/b/serious-black-businessman-watching-virtual-webinar-home-laptop-computer-adult-african-american-male-student-wearing-218230018.jpg')">
-                <div class="carousel-caption text-center">
-                    <h3>Aulas Particulares</h3>
-                    <p>Excel, Word, PowerPoint e mais</p>
-                    <a href="#contact" class="btn btn-primary btn-lg mt-3">Agendar Aula</a>
-                </div>
-            </div>
-
-            <!-- Slide 4 - Assistência Acadêmica -->
-            <div class="carousel-item"
-                style="background-image: url('https://thumbs.dreamstime.com/z/diploma-education-black-woman-graduate-portrait-university-success-graduation-achievement-student-cap-outdoor-motivation-266001048.jpg')">
-                <div class="carousel-caption text-center">
-                    <h3>Assistência Acadêmica</h3>
-                    <p>Acompanhamento especializado para monografias</p>
-                    <a href="#contact" class="btn btn-primary btn-lg mt-3">Saiba Mais</a>
-                </div>
+            <div class="logo-caption">
+                <span class="brand-name">JP Business</span>
+                <span class="brand-slogan">Tecnologia que Transforma</span>
+                <div class="brand-divider"></div>
             </div>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#serviceCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#serviceCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Próximo</span>
-        </button>
+        <!-- Cards Missão, Visão, Valores -->
+        <div class="mission-grid">
+            <!-- Card Missão -->
+            <div class="mission-card" data-aos="fade-right" data-aos-delay="100">
+                <div class="card-header">
+                    <div class="card-icon mission-icon">
+                        <i class="fas fa-rocket"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="card-title">Missão</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Democratizar o acesso a soluções tecnológicas de excelência em Moçambique, 
+                        transformando desafios em oportunidades através da inovação, educação e 
+                        serviços personalizados que impulsionam o crescimento de pessoas e negócios.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="mission-tag">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Impacto Real</span>
+                    </div>
+                </div>
+                <div class="card-decoration"></div>
+            </div>
+
+            <!-- Card Visão -->
+            <div class="mission-card featured" data-aos="fade-up" data-aos-delay="200">
+                <div class="featured-badge">
+                    <i class="fas fa-star"></i> 2030
+                </div>
+                <div class="card-header">
+                    <div class="card-icon vision-icon">
+                        <i class="fas fa-eye"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="card-title">Visão</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Ser reconhecida como a empresa líder em soluções tecnológicas em Moçambique 
+                        até 2030, referência em inovação, qualidade e transformação digital, 
+                        expandindo nossa presença para toda a África Lusófona.
+                    </p>
+                    <div class="vision-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">2030</span>
+                            <span class="stat-label">Meta</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">#1</span>
+                            <span class="stat-label">Liderança</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">🌍</span>
+                            <span class="stat-label">África</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="mission-tag">
+                        <i class="fas fa-globe"></i>
+                        <span>Expansão Continental</span>
+                    </div>
+                </div>
+                <div class="card-decoration"></div>
+            </div>
+
+            <!-- Card Valores -->
+            <div class="mission-card" data-aos="fade-left" data-aos-delay="300">
+                <div class="card-header">
+                    <div class="card-icon values-icon">
+                        <i class="fas fa-gem"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="card-title">Valores</h3>
+                </div>
+                <div class="card-body">
+                    <div class="values-list">
+                        <div class="value-item">
+                            <i class="fas fa-handshake"></i>
+                            <div class="value-content">
+                                <strong>Integridade</strong>
+                                <span>Transparência e ética</span>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-lightbulb"></i>
+                            <div class="value-content">
+                                <strong>Inovação</strong>
+                                <span>Soluções criativas</span>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-users"></i>
+                            <div class="value-content">
+                                <strong>Excelência</strong>
+                                <span>Qualidade superior</span>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-heart"></i>
+                            <div class="value-content">
+                                <strong>Compromisso</strong>
+                                <span>Dedicação total</span>
+                            </div>
+                        </div>
+                        <div class="value-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <div class="value-content">
+                                <strong>Evolução</strong>
+                                <span>Melhoria contínua</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="mission-tag">
+                        <i class="fas fa-crown"></i>
+                        <span>Nossa Essência</span>
+                    </div>
+                </div>
+                <div class="card-decoration"></div>
+            </div>
+        </div>
+
+        <!-- Frase Inspiradora -->
+        <div class="mission-quote" data-aos="fade-up" data-aos-delay="400">
+            <div class="quote-container">
+                <i class="fas fa-quote-left quote-icon"></i>
+                <p class="quote-text">
+                    A tecnologia é a ponte entre o sonho e a realização. 
+                    Na JP Business, construímos essa ponte com excelência, 
+                    inovação e compromisso.
+                </p>
+                <div class="quote-author">
+                    <div class="author-line"></div>
+                    <span>Jacinto de Manave Jacinto Patrício</span>
+                    <small>Fundador & CEO</small>
+                </div>
+                <i class="fas fa-quote-right quote-icon"></i>
+            </div>
+        </div>
     </div>
 
-    <!-- Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <h2 class="text-center section-title animate__animated animate__fadeIn">Nossos Serviços</h2>
+    <!-- Partículas de fundo -->
+    <div class="mission-particles"></div>
+</section>
 
+    <!-- Estatísticas -->
+    <section class="stats-section">
+        <div class="container">
             <div class="row">
-                <!-- Service 1 -->
-                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp">
-                    <div class="service-card p-4 text-center h-100">
+                <div class="col-4 col-md-3" data-aos="flip-left">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label">Projetos</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-3" data-aos="flip-left" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-3" data-aos="flip-left" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="2024">0</div>
+                        <div class="stat-label">Desde</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 mt-3 mt-md-0" data-aos="flip-left" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">Suporte 24/7</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-aos="fade-down">
+                    <i class="fas fa-cog me-2"></i>O Que Fazemos
+                </span>
+                <h2 class="section-title" data-aos="fade-up">
+                    Nossos <span>Serviços</span>
+                </h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Manutenção -->
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-card hvr-float-shadow">
                         <div class="service-icon">
-                            <i class="fas fa-laptop"></i>
+                            <i class="fas fa-microchip"></i>
                         </div>
-                        <h3>Manutenção e Suporte Técnico</h3>
-                        <p>Formatação, instalação de Windows, Office, antivírus, limpeza e upgrade de computadores.</p>
-                        <span class="price-tag">500–1000 MZN</span>
+                        <h3 class="service-title">Manutenção Técnica</h3>
+                        <p class="service-desc">Reparos, formatação e otimização de computadores e notebooks.</p>
+                        <div class="service-tags">
+                            <span class="service-tag">Formatação</span>
+                            <span class="service-tag">Upgrade</span>
+                            <span class="service-tag">Vírus</span>
+                        </div>
+                        <div class="service-price">500–1500 MZN</div>
+                        <button class="btn-glow w-100 hvr-bounce-to-right" data-bs-toggle="modal"
+                            data-bs-target="#modalManutencao">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalhes
+                        </button>
                     </div>
                 </div>
 
-                <!-- Service 2 -->
-                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="service-card p-4 text-center h-100">
+                <!-- Websites -->
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card hvr-float-shadow">
                         <div class="service-icon">
                             <i class="fas fa-globe"></i>
                         </div>
-                        <h3>Criação de Sites</h3>
-                        <p>Sites profissionais para restaurantes, lojas, salões usando WordPress ou HTML/CSS básicos.
-                        </p>
-                        <span class="price-tag">1500–5000 MZN</span>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-2s">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
+                        <h3 class="service-title">Websites</h3>
+                        <p class="service-desc">Sites modernos, responsivos e otimizados para SEO.</p>
+                        <div class="service-tags">
+                            <span class="service-tag">React</span>
+                            <span class="service-tag">WordPress</span>
+                            <span class="service-tag">SEO</span>
                         </div>
-                        <h3>Aulas Particulares</h3>
-                        <p>Excel, Word, PowerPoint, navegação segura na internet. Aprenda no seu ritmo.</p>
-                        <span class="price-tag">300–800 MZN/hora</span>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="col-md-6 col-lg-6 animate__animated animate__fadeInUp">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-print"></i>
-                        </div>
-                        <h3>Design e Impressão</h3>
-                        <p>Currículos, cartões, flyers, certificados. Design profissional para seus documentos.</p>
-                        <span class="price-tag">Preço por documento</span>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="col-md-6 col-lg-6 animate__animated animate__fadeInUp animate__delay-1s">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Desenvolvimento de Software</h3>
-                        <p>Soluções personalizadas para suas necessidades específicas. Assistência para monografia.</p>
-                        <span class="price-tag">Orçamento personalizado</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                    <img src="image/jp.png" alt="Jacinto Patricio"
-                        class="profile-img animate__animated animate__fadeInLeft">
-                </div>
-                <div class="col-lg-8">
-                    <h2 class="section-title animate__animated animate__fadeIn">Sobre a JP Business</h2>
-                    <p class="animate__animated animate__fadeInRight">A JP Business é uma empresa especializada em
-                        soluções tecnológicas, oferecendo serviços de qualidade para ajudar indivíduos e empresas a
-                        alcançarem seu potencial máximo através da tecnologia.</p>
-                    <p class="animate__animated animate__fadeInRight animate__delay-1s">Com anos de experiência no
-                        mercado, nosso objetivo é fornecer serviços acessíveis e de qualidade, adaptados às necessidades
-                        específicas de cada cliente.</p>
-                    <p class="animate__animated animate__fadeInRight animate__delay-2s">Nosso compromisso é com a
-                        satisfação do cliente e com a excelência na execução de cada projeto.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="faq-section">
-        <div class="container">
-            <h2 class="text-center section-title animate__animated animate__fadeIn">Perguntas Frequentes</h2>
-            <p class="text-center mb-5 animate__animated animate__fadeIn">Tire suas dúvidas sobre nossos serviços e
-                processos</p>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <!-- FAQ Item 1 -->
-                    <div class="faq-item animate__animated animate__fadeInUp">
-                        <div class="faq-question">
-                            <i class="fas fa-laptop faq-icon"></i> Quais são os requisitos necessários para elaborar meu
-                            website?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Para criar seu website, precisamos principalmente de:</p>
-                            <ul>
-                                <li>Conteúdo básico (textos sobre sua empresa, produtos/serviços)</li>
-                                <li>Imagens que deseja utilizar (logotipo, fotos do estabelecimento/produtos)</li>
-                                <li>Informações de contato (telefone, email, endereço)</li>
-                                <li>Detalhes sobre o design preferido (cores, estilo, referências)</li>
-                            </ul>
-                            <p>Não se preocupe se não tiver tudo pronto, podemos ajudar a desenvolver cada parte!</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 2 -->
-                    <div class="faq-item animate__animated animate__fadeInUp animate__delay-1s">
-                        <div class="faq-question">
-                            <i class="fas fa-chalkboard-teacher faq-icon"></i> Como são feitas as aulas particulares
-                            (presencial e online)?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Oferecemos duas modalidades flexíveis:</p>
-                            <p><strong>Aulas Presenciais:</strong></p>
-                            <ul>
-                                <li>Realizadas no conforto da sua casa ou escritório</li>
-                                <li>Agendamento flexível conforme sua disponibilidade</li>
-                                <li>Equipamento pode ser o seu ou podemos levar um para demonstração</li>
-                            </ul>
-                            <p><strong>Aulas Online:</strong></p>
-                            <ul>
-                                <li>Realizadas via Zoom, Google Meet ou plataforma de sua preferência</li>
-                                <li>Material didático compartilhado digitalmente</li>
-                                <li>Possibilidade de gravação das aulas para revisão</li>
-                                <li>Suporte por WhatsApp entre aulas para dúvidas rápidas</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 3 -->
-                    <div class="faq-item animate__animated animate__fadeInUp animate__delay-2s">
-                        <div class="faq-question">
-                            <i class="fas fa-book faq-icon"></i> Como é feita a assistência e acompanhamento das
-                            monografias e softwares?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Nosso acompanhamento é personalizado e inclui:</p>
-                            <p><strong>Para Monografias:</strong></p>
-                            <ul>
-                                <li>Orientação desde a definição do tema até a formatação final</li>
-                                <li>Revisão de cada capítulo com feedback detalhado</li>
-                                <li>Auxílio na pesquisa e estruturação do conteúdo</li>
-                                <li>Acompanhamento semanal com metas definidas</li>
-                            </ul>
-                            <p><strong>Para Desenvolvimento de Software:</strong></p>
-                            <ul>
-                                <li>Reuniões iniciais para definição de requisitos</li>
-                                <li>Apresentação de protótipos e versões intermediárias</li>
-                                <li>Testes realizados em conjunto com o cliente</li>
-                                <li>Suporte pós-entrega para ajustes necessários</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 4 -->
-                    <div class="faq-item animate__animated animate__fadeInUp">
-                        <div class="faq-question">
-                            <i class="fas fa-money-bill-wave faq-icon"></i> Como funciona o método de pagamento?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Trabalhamos com um sistema flexível e transparente:</p>
-                            <ul>
-                                <li>Pagamento via conta móvel (MPesa, Movitel, Vodacom)</li>
-                                <li>Possibilidade de parcelamento conforme entrega das etapas</li>
-                                <li>Para projetos maiores (sites/software), dividimos em 3-4 pagamentos:
-                                    <ol>
-                                        <li>30% no início do projeto</li>
-                                        <li>40% na entrega da versão preliminar</li>
-                                        <li>30% na conclusão e entrega final</li>
-                                    </ol>
-                                </li>
-                                <li>Para serviços pontuais (formatação, aulas), pagamento integral no ato do serviço
-                                </li>
-                                <li>Emitimos recibo digital para todos os pagamentos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 5 -->
-                    <div class="faq-item animate__animated animate__fadeInUp animate__delay-1s">
-                        <div class="faq-question">
-                            <i class="fas fa-clock faq-icon"></i> Qual é o prazo médio para entrega dos serviços?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Os prazos variam conforme o serviço:</p>
-                            <ul>
-                                <li><strong>Manutenção de computadores:</strong> 1-2 dias úteis (dependendo da
-                                    complexidade)</li>
-                                <li><strong>Sites simples:</strong> 2-3 semanas após aprovação de todos os materiais
-                                </li>
-                                <li><strong>Aulas particulares:</strong> Agendamento conforme disponibilidade do aluno
-                                </li>
-                                <li><strong>Design de documentos:</strong> 2-5 dias úteis</li>
-                                <li><strong>Desenvolvimento de software:</strong> Prazo definido conforme escopo
-                                    (geralmente 1-3 meses)</li>
-                                <li><strong>Acompanhamento de monografias:</strong> Conforme cronograma acadêmico do
-                                    aluno</li>
-                            </ul>
-                            <p>Sempre priorizamos a qualidade, mas buscamos atender urgências quando possível.</p>
-                        </div>
-                    </div>
-
-                    <!-- FAQ Item 6 -->
-                    <div class="faq-item animate__animated animate__fadeInUp animate__delay-2s">
-                        <div class="faq-question">
-                            <i class="fas fa-shield-alt faq-icon"></i> Há garantia para os serviços prestados?
-                        </div>
-                        <div class="faq-answer">
-                            <p>Sim, oferecemos garantia para todos os nossos serviços:</p>
-                            <ul>
-                                <li><strong>Manutenção de computadores:</strong> 30 dias para o mesmo problema</li>
-                                <li><strong>Sites:</strong> 3 meses de suporte gratuito para ajustes menores</li>
-                                <li><strong>Software:</strong> 6 meses para correção de bugs funcionais</li>
-                                <li><strong>Design de documentos:</strong> 2 revisões gratuitas após entrega</li>
-                            </ul>
-                            <p>Para as aulas particulares, oferecemos reposição em caso de problemas técnicos do nosso
-                                lado que impossibilitem a realização da aula.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="text-center section-title text-white animate__animated animate__fadeIn">Entre em Contato</h2>
-
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <div class="contact-icon animate__animated animate__bounceIn">
-                        <button type="button" class="btn solicitar-btn" data-bs-toggle="modal"
-                            data-bs-target="#solicitarModal">
-                            <i class="fas fa-paper-plane me-2"></i> Solicitar Serviço
+                        <div class="service-price">2500–8000 MZN</div>
+                        <button class="btn-glow w-100 hvr-bounce-to-right" data-bs-toggle="modal"
+                            data-bs-target="#modalWebsites">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalhes
                         </button>
                     </div>
-                    <p class="mb-4 animate__animated animate__fadeInUp">Estamos prontos para ajudar você com suas
-                        necessidades tecnológicas. Entre em contato conosco através dos canais abaixo:</p>
+                </div>
 
-                    <div
-                        class="d-flex flex-wrap justify-content-center mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                        <a href="https://wa.me/258864005964" class="btn btn-primary btn-lg me-3 mb-3">
-                            <i class="fab fa-whatsapp me-2"></i> WhatsApp
-                        </a>
-                        <a href="mailto:jacintopatricio9@gmail.com" class="btn btn-outline-light btn-lg mb-3">
-                            <i class="fas fa-envelope me-2"></i> Email
-                        </a>
+                <!-- Aulas -->
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card hvr-float-shadow">
+                        <div class="service-icon">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="service-title">Aulas Particulares</h3>
+                        <p class="service-desc">Programação, Pacote Office e Automação com IA.</p>
+                        <div class="service-tags">
+                            <span class="service-tag">Python</span>
+                            <span class="service-tag">Java/JS</span>
+                            <span class="service-tag">IA/N8N</span>
+                        </div>
+                        <div class="service-price">400–1000 MZN/h</div>
+                        <button class="btn-glow w-100 hvr-bounce-to-right" data-bs-toggle="modal"
+                            data-bs-target="#modalAulas">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalhes
+                        </button>
                     </div>
+                </div>
 
+                <!-- Design -->
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-card hvr-float-shadow">
+                        <div class="service-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="service-title">Design Gráfico</h3>
+                        <p class="service-desc">Logotipos, edição de vídeos e conteúdo digital.</p>
+                        <div class="service-tags">
+                            <span class="service-tag">Logo</span>
+                            <span class="service-tag">Vídeo</span>
+                            <span class="service-tag">Social</span>
+                        </div>
+                        <div class="service-price">800–3000 MZN</div>
+                        <button class="btn-glow w-100 hvr-bounce-to-right" data-bs-toggle="modal"
+                            data-bs-target="#modalDesign">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalhes
+                        </button>
+                    </div>
+                </div>
 
-                    <div class="social-links animate__animated animate__fadeInUp animate__delay-2s">
-                        <a href="https://www.facebook.com/profile.php?id=61575519279936" class="social-icon"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/jacintopatricio33/" class="social-icon"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/jacinto-patricio-02a251268/" class="social-icon"><i
-                                class="fab fa-linkedin-in"></i></a>
+                <!-- Software -->
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card hvr-float-shadow">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 class="service-title">Software</h3>
+                        <p class="service-desc">Apps mobile e sistemas web personalizados.</p>
+                        <div class="service-tags">
+                            <span class="service-tag">Mobile</span>
+                            <span class="service-tag">ERP/CRM</span>
+                            <span class="service-tag">API</span>
+                        </div>
+                        <div class="service-price">5000+ MZN</div>
+                        <button class="btn-glow w-100 hvr-bounce-to-right" data-bs-toggle="modal"
+                            data-bs-target="#modalSoftware">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Marketing -->
+                <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card hvr-float-shadow">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="service-title">Marketing Digital</h3>
+                        <p class="service-desc">SEO, tráfego pago e gestão de leads.</p>
+                        <div class="service-tags">
+                            <span class="service-tag">SEO</span>
+                            <span class="service-tag">Ads</span>
+                            <span class="service-tag">Leads</span>
+                        </div>
+                        <div class="service-price">2000+ MZN/mês</div>
+                        <button class="btn-glow w-100 hvr-bounce-to-right" data-bs-toggle="modal"
+                            data-bs-target="#modalMarketing">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Eventos -->
+                <div class="col-12" data-aos="fade-up">
+                    <div class="service-card hvr-float-shadow">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-star"></i>
+                        </div>
+                        <h3 class="service-title">Eventos & Cerimônias</h3>
+                        <p class="service-desc">Organização completa para momentos inesquecíveis.</p>
+                        <div class="service-tags">
+                            <span class="service-tag">Convites</span>
+                            <span class="service-tag">Protocolo</span>
+                            <span class="service-tag">Fotografia</span>
+                            <span class="service-tag">Viaturas</span>
+                        </div>
+                        <div class="service-price">Sob Consulta</div>
+                        <button class="btn-glow w-100 hvr-bounce-to-right" data-bs-toggle="modal"
+                            data-bs-target="#modalEventos">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalhes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" data-aos="fade-down">
+                    <i class="fas fa-users me-2"></i>Clientes Satisfeitos
+                </span>
+                <h2 class="section-title" data-aos="fade-up">
+                    Quem <span>Confia em Nós</span>
+                </h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="testimonial-card hvr-glow">
+                        <div class="testimonial-content">
+                            A JP Business revolucionou nossa análise de dados. Profissionalismo e resultados
+                            excepcionais!
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://ui-avatars.com/api/?name=Obasanjo+Jussa&size=60&background=00d4ff&color=fff"
+                                alt="Obasanjo Jussa" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Obasanjo Jussa</h4>
+                                <p>CEO, MJB DataAnalytics</p>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card hvr-glow">
+                        <div class="testimonial-content">
+                            Serviço de tradução e localização impecável. Entenderam exatamente nossas necessidades
+                            globais.
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://ui-avatars.com/api/?name=Edmilson+Ernesto&size=60&background=7c3aed&color=fff"
+                                alt="Edmilson Ernesto" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Edmilson Ernesto</h4>
+                                <p>CEO, Moz Global Translation</p>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card hvr-glow">
+                        <div class="testimonial-content">
+                            As aulas de programação aceleraram minha carreira. Didática excelente e muito paciente!
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://ui-avatars.com/api/?name=Alberto+Juramento&size=60&background=10b981&color=fff"
+                                alt="Alberto Juramento" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Alberto Juramento</h4>
+                                <p>Programador Júnior</p>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Fundador -->
+    <section id="founder" class="founder-section">
+        <div class="container">
+            <div class="founder-card" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 text-center mb-4 mb-lg-0">
+                        <div class="founder-img-wrapper">
+                            <img src="image/WhatsApp Image 2026-03-07 at 20.27.12 2.jpeg"
+                                class="founder-img hvr-grow-shadow">
+                            <span class="founder-badge">
+                                <i class="fas fa-star me-1"></i>CEO & Fundador
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <span class="section-badge">
+                            <i class="fas fa-user-tie me-2"></i>Conheça o Fundador
+                        </span>
+                        <h2 class="founder-name">Jacinto de Manave Jacinto Patrício</h2>
+                        <h3 class="founder-title">Especialista em Tecnologia & Inovação</h3>
+                        <p class="founder-bio">
+                            Visionário e apaixonado por tecnologia, fundou a JP Business com a missão de democratizar
+                            o acesso a soluções tecnológicas de qualidade em Moçambique. Com expertise em
+                            desenvolvimento
+                            de software, marketing digital e automação de processos, dedica-se a transformar ideias
+                            em resultados concretos.
+                        </p>
+                        <p class="founder-bio">
+                            <i class="fas fa-map-marker-alt me-2" style="color: var(--secondary);"></i>
+                            Beira, Moçambique
+                        </p>
+                        <div class="founded-year">
+                            <i class="fas fa-calendar-alt me-2"></i>Fundada em 2024
+                        </div>
+                        <div class="social-links mt-4">
+                            <a href="https://www.facebook.com/profile.php?id=61575519279936" class="social-link hvr-float"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/_jacinto_patricio" class="social-link hvr-float"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link hvr-float"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://github.com/Jacinto011" class="social-link hvr-float"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-card" data-aos="zoom-in">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <span class="section-badge">
+                            <i class="fas fa-headset me-2"></i>Fale Conosco
+                        </span>
+                        <h2 class="section-title" style="font-size: 2.5rem;">
+                            Vamos <span>Conversar?</span>
+                        </h2>
+                        <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">
+                            Pronto para transformar sua ideia em realidade? Entre em contato e receba um orçamento
+                            personalizado em até 2 horas!
+                        </p>
+                        <a href="https://wa.me/258864005964" class="contact-method hvr-forward" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+258 86 400 5964</span>
+                        </a>
+                        <a href="mailto:jacintopatricio9@gmail.com" class="contact-method hvr-forward">
+                            <i class="fas fa-envelope"></i>
+                            <span>jacintopatricio9@gmail.com</span>
+                        </a>
+                        <div class="social-links">
+                            <a href="#" class="social-link hvr-bob"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link hvr-bob"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link hvr-bob"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link hvr-bob"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <i class="fas fa-rocket"
+                            style="font-size: 12rem; opacity: 0.1; color: var(--secondary); animation: float 4s ease-in-out infinite;"></i>
+                        <button class="btn-glow btn-lg mt-4 hvr-pulse-grow" data-bs-toggle="modal"
+                            data-bs-target="#solicitarModal">
+                            <i class="fas fa-paper-plane me-2"></i>Solicitar Orçamento Agora
+                        </button>
                     </div>
                 </div>
             </div>
@@ -383,294 +754,360 @@
     </section>
 
     <!-- Footer -->
-    <footer class="text-center">
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 JP Business. Todos os direitos reservados.</p>
+            <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 1rem;">
+                &copy; 2024 JP Business. Todos os direitos reservados.
+            </p>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    <!-- Back to Top -->
+    <button class="back-to-top hvr-icon-up" id="backToTop">
+        <i class="fas fa-arrow-up hvr-icon"></i>
+    </button>
 
-    <!-- Modal Form -->
-    <div class="modal fade" id="solicitarModal" tabindex="-1" aria-labelledby="solicitarModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+    <!-- ============================================ -->
+    <!-- MODAIS DETALHADOS DOS SERVIÇOS -->
+    <!-- ============================================ -->
+
+    <!-- Modal Manutenção -->
+    <div class="modal fade" id="modalManutencao" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="solicitarModalLabel">Solicitar Serviço</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title"><i class="fas fa-microchip me-2"></i>Manutenção e Suporte Técnico</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Progress Steps Indicator -->
-                    <div class="step-indicator">
-                        <div class="step active" id="step1-indicator">1</div>
-                        <div class="step" id="step2-indicator">2</div>
-                        <div class="step" id="step3-indicator">3</div>
+                    <h6 class="mb-3" style="color: var(--secondary);"><i class="fas fa-list-check me-2"></i>Serviços
+                        Incluídos</h6>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> Formatação e instalação de Windows/macOS/Linux</li>
+                        <li><i class="fas fa-check-circle"></i> Instalação de Pacote Office e softwares essenciais</li>
+                        <li><i class="fas fa-check-circle"></i> Limpeza física completa e troca de pasta térmica</li>
+                        <li><i class="fas fa-check-circle"></i> Upgrade de hardware (RAM, SSD, HD)</li>
+                        <li><i class="fas fa-check-circle"></i> Diagnóstico e reparo de falhas de hardware</li>
+                        <li><i class="fas fa-check-circle"></i> Configuração de redes, impressoras e periféricos</li>
+                        <li><i class="fas fa-check-circle"></i> Remoção de vírus e malware</li>
+                        <li><i class="fas fa-check-circle"></i> Backup e recuperação de dados</li>
+                    </ul>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6 style="color: var(--secondary);"><i class="fas fa-clock me-2"></i>Prazos</h6>
+                            <p>24-48h para serviços simples. Atendimento de emergência disponível.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 style="color: var(--secondary);"><i class="fas fa-shield-alt me-2"></i>Garantia</h6>
+                            <p>30 dias para o mesmo problema.</p>
+                        </div>
                     </div>
+                    <div class="mt-3 p-3" style="background: rgba(0,212,255,0.1); border-radius: 15px;">
+                        <strong style="color: var(--secondary);">Investimento:</strong> 500 – 1500 MZN (dependendo da
+                        complexidade)
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-glow" data-bs-toggle="modal"
+                        data-bs-target="#solicitarModal">Solicitar Serviço</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <!-- Form Steps -->
+    <!-- Modal Websites -->
+    <div class="modal fade" id="modalWebsites" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-globe me-2"></i>Criação de Websites</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 style="color: var(--secondary);"><i class="fas fa-code me-2"></i>Tecnologias Utilizadas</h6>
+                    <div class="service-tags mb-3">
+                        <span class="service-tag">React.js</span>
+                        <span class="service-tag">Next.js</span>
+                        <span class="service-tag">Vue.js</span>
+                        <span class="service-tag">WordPress</span>
+                        <span class="service-tag">HTML5/CSS3</span>
+                        <span class="service-tag">JavaScript</span>
+                        <span class="service-tag">PHP/Laravel</span>
+                        <span class="service-tag">Node.js</span>
+                    </div>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> Design responsivo e mobile-first</li>
+                        <li><i class="fas fa-check-circle"></i> Otimização SEO completa</li>
+                        <li><i class="fas fa-check-circle"></i> Integração com redes sociais e APIs</li>
+                        <li><i class="fas fa-check-circle"></i> Sistema de gestão de conteúdo (CMS)</li>
+                        <li><i class="fas fa-check-circle"></i> Treinamento para administração do site</li>
+                        <li><i class="fas fa-check-circle"></i> Certificado SSL e segurança</li>
+                        <li><i class="fas fa-check-circle"></i> 3 meses de suporte gratuito</li>
+                    </ul>
+                    <div class="mt-3 p-3" style="background: rgba(0,212,255,0.1); border-radius: 15px;">
+                        <strong style="color: var(--secondary);">Investimento:</strong> 2500 – 8000 MZN (dependendo da
+                        complexidade)
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-glow" data-bs-toggle="modal"
+                        data-bs-target="#solicitarModal">Solicitar Orçamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Aulas -->
+    <div class="modal fade" id="modalAulas" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-chalkboard-user me-2"></i>Aulas Particulares</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 style="color: var(--secondary);"><i class="fas fa-book-open me-2"></i>Conteúdos Disponíveis</h6>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> <strong>Pacote Office:</strong> Excel (básico ao
+                            avançado com dashboards), Word, PowerPoint</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Programação:</strong> Python, Java, JavaScript,
+                            C++, PHP</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Automação:</strong> N8N, Make.com, Integrações
+                            com IA (ChatGPT, Claude)</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Desenvolvimento Web:</strong> HTML, CSS, React,
+                            Node.js</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Banco de Dados:</strong> MySQL, PostgreSQL,
+                            MongoDB</li>
+                    </ul>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6 style="color: var(--secondary);"><i class="fas fa-video me-2"></i>Modalidades</h6>
+                            <p>Online (Zoom/Meet) ou Presencial (Maputo e arredores)</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 style="color: var(--secondary);"><i class="fas fa-clock me-2"></i>Horários Flexíveis
+                            </h6>
+                            <p>Aulas de 1h ou 2h, conforme sua disponibilidade</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 p-3" style="background: rgba(0,212,255,0.1); border-radius: 15px;">
+                        <strong style="color: var(--secondary);">Investimento:</strong> 400–1000 MZN/hora | Pacotes com
+                        desconto a partir de 5 aulas
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-glow" data-bs-toggle="modal"
+                        data-bs-target="#solicitarModal">Agendar Aula</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Design -->
+    <div class="modal fade" id="modalDesign" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-paint-brush me-2"></i>Design Gráfico</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> Criação de Logotipos e Identidade Visual completa</li>
+                        <li><i class="fas fa-check-circle"></i> Banners para Redes Sociais, Sites e Anúncios</li>
+                        <li><i class="fas fa-check-circle"></i> Edição de Vídeos (Reels, TikTok, YouTube, Comerciais)
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Flyers, Cartões de Visita, Folders e Catálogos</li>
+                        <li><i class="fas fa-check-circle"></i> Criação de Conteúdo para Redes Sociais (Pacotes mensais)
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Capas para eBooks, Apresentações e Infográficos</li>
+                    </ul>
+                    <div class="mt-3 p-3" style="background: rgba(0,212,255,0.1); border-radius: 15px;">
+                        <strong style="color: var(--secondary);">Investimento:</strong> 800–3000 MZN | Pacotes mensais a
+                        partir de 1500 MZN
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-glow" data-bs-toggle="modal"
+                        data-bs-target="#solicitarModal">Solicitar Design</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Software -->
+    <div class="modal fade" id="modalSoftware" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-mobile-alt me-2"></i>Desenvolvimento de Software</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> Aplicações Mobile (iOS e Android) - React Native /
+                            Flutter</li>
+                        <li><i class="fas fa-check-circle"></i> Sistemas Web Robustos (ERP, CRM, Gestão de Estoque)</li>
+                        <li><i class="fas fa-check-circle"></i> APIs RESTful e Integrações com Terceiros</li>
+                        <li><i class="fas fa-check-circle"></i> Bancos de Dados (MySQL, PostgreSQL, MongoDB, Firebase)
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Automação de Processos Empresariais</li>
+                        <li><i class="fas fa-check-circle"></i> Manutenção e Evolução de Sistemas Legados</li>
+                    </ul>
+                    <h6 style="color: var(--secondary);" class="mt-4"><i class="fas fa-chart-bar me-2"></i>Metodologia
+                    </h6>
+                    <p>Trabalhamos com metodologias ágeis (Scrum/Kanban), entregas parciais e feedback constante.</p>
+                    <div class="mt-3 p-3" style="background: rgba(0,212,255,0.1); border-radius: 15px;">
+                        <strong style="color: var(--secondary);">Investimento:</strong> A partir de 5000 MZN (orçamento
+                        personalizado)
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-glow" data-bs-toggle="modal"
+                        data-bs-target="#solicitarModal">Solicitar Proposta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Marketing -->
+    <div class="modal fade" id="modalMarketing" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-chart-line me-2"></i>Marketing Digital</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> <strong>SEO:</strong> Otimização para Google e Bing</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Tráfego Pago:</strong> Google Ads, Meta Ads,
+                            TikTok Ads</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Gestão de Leads:</strong> Captação, nutrição e
+                            conversão</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Marketing de Conteúdo:</strong> Blog, redes
+                            sociais, email</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Email Marketing:</strong> Automação e campanhas
+                            segmentadas</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Análise de Dados:</strong> Google Analytics,
+                            relatórios personalizados</li>
+                    </ul>
+                    <div class="mt-3 p-3" style="background: rgba(0,212,255,0.1); border-radius: 15px;">
+                        <strong style="color: var(--secondary);">Investimento:</strong> Planos mensais a partir de 2000
+                        MZN + verba de anúncios
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-glow" data-bs-toggle="modal" data-bs-target="#solicitarModal">Quero
+                        Mais Clientes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Eventos -->
+    <div class="modal fade" id="modalEventos" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-calendar-star me-2"></i>Serviços para Eventos</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 style="color: var(--secondary);"><i class="fas fa-envelope-open-text me-2"></i>Convites</h6>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> Convites Virtuais Animados (WhatsApp/redes sociais)</li>
+                        <li><i class="fas fa-check-circle"></i> Convites Físicos com Design Exclusivo e Acabamento
+                            Premium</li>
+                        <li><i class="fas fa-check-circle"></i> Impressão de alta qualidade</li>
+                    </ul>
+                    <h6 style="color: var(--secondary);" class="mt-4"><i
+                            class="fas fa-clipboard-list me-2"></i>Protocolo e Organização</h6>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> Gestão de Lista de Convidados e RSVP</li>
+                        <li><i class="fas fa-check-circle"></i> Organização de Assentos (Seating Plan)</li>
+                        <li><i class="fas fa-check-circle"></i> Coordenação com fornecedores</li>
+                        <li><i class="fas fa-check-circle"></i> Cerimonial e Roteiro do Evento</li>
+                    </ul>
+                    <h6 style="color: var(--secondary);" class="mt-4"><i class="fas fa-car me-2"></i>Serviços Adicionais
+                    </h6>
+                    <ul class="detail-list">
+                        <li><i class="fas fa-check-circle"></i> Aluguer de Viaturas de Luxo (parceria)</li>
+                        <li><i class="fas fa-check-circle"></i> Fotografia e Vídeo Profissional</li>
+                        <li><i class="fas fa-check-circle"></i> Cobertura completa do evento</li>
+                    </ul>
+                    <div class="mt-3 p-3" style="background: rgba(0,212,255,0.1); border-radius: 15px;">
+                        <strong style="color: var(--secondary);">Investimento:</strong> Pacotes personalizados -
+                        Solicite orçamento!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn-glow" data-bs-toggle="modal"
+                        data-bs-target="#solicitarModal">Solicitar Orçamento</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Solicitação -->
+    <div class="modal fade" id="solicitarModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-paper-plane me-2"></i>Solicitar Serviço</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
                     <form id="serviceForm">
-                        <!-- Step 1: Personal Data -->
-                        <div class="form-step active" id="step1">
-                            <div class="mb-3">
-                                <label for="nomeCompleto" class="form-label">Nome Completo *</label>
-                                <input type="text" class="form-control" id="nomeCompleto" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">E-mail *</label>
-                                <input type="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="telefone" class="form-label">Telefone *</label>
-                                <input type="tel" class="form-control" id="telefone" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="provincia" class="form-label">Província *</label>
-                                <select class="form-select" id="provincia" required>
-                                    <option value="" selected disabled>Selecione sua província</option>
-                                    <option value="Maputo Cidade">Maputo Cidade</option>
-                                    <option value="Maputo Província">Maputo Província</option>
-                                    <option value="Gaza">Gaza</option>
-                                    <option value="Inhambane">Inhambane</option>
-                                    <option value="Sofala">Sofala</option>
-                                    <option value="Manica">Manica</option>
-                                    <option value="Tete">Tete</option>
-                                    <option value="Zambézia">Zambézia</option>
-                                    <option value="Nampula">Nampula</option>
-                                    <option value="Cabo Delgado">Cabo Delgado</option>
-                                    <option value="Niassa">Niassa</option>
-                                    <option value="outra">Outra (Especifique)</option>
-                                </select>
-                            </div>
-                            <div class="mb-3" id="outraProvinciaContainer" style="display: none;">
-                                <label for="outraProvincia" class="form-label">Especifique a Província *</label>
-                                <input type="text" class="form-control" id="outraProvincia">
-                            </div>
-                            <div class="mb-3 province-district-container" id="distritoContainer">
-                                <label for="distrito" class="form-label">Distrito *</label>
-                                <select class="form-select" id="distrito">
-                                    <option value="" selected disabled>Selecione seu distrito</option>
-                                    <!-- Distritos serão preenchidos via JavaScript -->
-                                </select>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nome Completo *</label>
+                            <input type="text" class="form-control" id="nome" required>
                         </div>
-
-                        <!-- Step 2: Services -->
-                        <div class="form-step" id="step2">
-                            <div class="mb-3">
-                                <label for="servico" class="form-label">Serviço que pretende *</label>
-                                <select class="form-select" id="servico" required>
-                                    <option value="" selected disabled>Selecione um serviço</option>
-                                    <option value="suporte">Suporte Técnico</option>
-                                    <option value="desenvolvimento">Desenvolvimento de Solução</option>
-                                    <option value="aulas">Aulas Particulares</option>
-                                    <option value="assistencia">Assistência Acadêmica</option>
-                                    <option value="divulgacao">Divulgação da Marca</option>
-                                </select>
-                            </div>
-
-                            <!-- Suporte Técnico Options -->
-                            <div class="service-options" id="suporteOptions">
-                                <h6>Detalhes do Suporte Técnico</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="formatacao"
-                                        name="suporte_opcoes" value="Formatação/Instalação de Sistema">
-                                    <label class="form-check-label" for="formatacao">Formatação/Instalação de
-                                        Sistema</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="limpeza" name="suporte_opcoes"
-                                        value="Limpeza Física">
-                                    <label class="form-check-label" for="limpeza">Limpeza Física</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="upgrade" name="suporte_opcoes"
-                                        value="Upgrade de Hardware">
-                                    <label class="form-check-label" for="upgrade">Upgrade de Hardware</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="outroSuporte"
-                                        name="suporte_opcoes" value="Outro">
-                                    <label class="form-check-label" for="outroSuporte">Outro (Especifique)</label>
-                                    <input type="text" class="form-control mt-2" id="outroSuporteText"
-                                        name="outro_suporte" style="display: none;">
-                                </div>
-                            </div>
-
-                            <!-- Desenvolvimento Options -->
-                            <div class="service-options" id="desenvolvimentoOptions">
-                                <h6>Tipo de Solução *</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoSolucao" id="website"
-                                        value="Website" required>
-                                    <label class="form-check-label" for="website">Website</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoSolucao" id="sistema"
-                                        value="Sistema/Gestão">
-                                    <label class="form-check-label" for="sistema">Sistema/Gestão</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoSolucao" id="app"
-                                        value="Aplicativo Móvel">
-                                    <label class="form-check-label" for="app">Aplicativo Móvel</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoSolucao" id="outroDev"
-                                        value="Outro">
-                                    <label class="form-check-label" for="outroDev">Outro (Especifique)</label>
-                                    <input type="text" class="form-control mt-2" id="outroDevText" name="outro_dev"
-                                        style="display: none;">
-                                </div>
-                            </div>
-
-                            <!-- Aulas Options -->
-                            <div class="service-options" id="aulasOptions">
-                                <h6>Tipo de Aula *</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="excel" name="aulas_opcoes"
-                                        value="Microsoft Excel">
-                                    <label class="form-check-label" for="excel">Microsoft Excel</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="word" name="aulas_opcoes"
-                                        value="Microsoft Word">
-                                    <label class="form-check-label" for="word">Microsoft Word</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="powerpoint" name="aulas_opcoes"
-                                        value="Microsoft PowerPoint">
-                                    <label class="form-check-label" for="powerpoint">Microsoft PowerPoint</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="internet" name="aulas_opcoes"
-                                        value="Internet e Navegação Segura">
-                                    <label class="form-check-label" for="internet">Internet e Navegação Segura</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="programacao" name="aulas_opcoes"
-                                        value="Programação Básica">
-                                    <label class="form-check-label" for="programacao">Programação Básica</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="redes" name="aulas_opcoes"
-                                        value="Redes e Conectividade">
-                                    <label class="form-check-label" for="redes">Redes e Conectividade</label>
-                                </div>
-                            </div>
-
-                            <!-- Assistência Acadêmica Options -->
-                            <div class="service-options" id="assistenciaOptions">
-                                <h6>Tipo de Assistência *</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoAssistencia" id="monografia"
-                                        value="Monografia/Tese" required>
-                                    <label class="form-check-label" for="monografia">Monografia/Tese</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoAssistencia" id="projeto"
-                                        value="Projeto de Pesquisa">
-                                    <label class="form-check-label" for="projeto">Projeto de Pesquisa</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoAssistencia" id="artigo"
-                                        value="Artigo Científico">
-                                    <label class="form-check-label" for="artigo">Artigo Científico</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="tipoAssistencia"
-                                        id="outroAcademico" value="Outro">
-                                    <label class="form-check-label" for="outroAcademico">Outro (Especifique)</label>
-                                    <input type="text" class="form-control mt-2" id="outroAcademicoText"
-                                        name="outro_academico" style="display: none;">
-                                </div>
-                            </div>
-
-                            <!-- Divulgação Options -->
-                            <div class="service-options" id="divulgacaoOptions">
-                                <h6>Tipo de Divulgação *</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="redesSociais"
-                                        name="divulgacao_opcoes" value="Gestão de Redes Sociais">
-                                    <label class="form-check-label" for="redesSociais">Gestão de Redes Sociais</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="materialGrafico"
-                                        name="divulgacao_opcoes" value="Material Gráfico">
-                                    <label class="form-check-label" for="materialGrafico">Material Gráfico</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="site" name="divulgacao_opcoes"
-                                        value="Criação de Site">
-                                    <label class="form-check-label" for="site">Criação de Site</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="outroDivulgacao"
-                                        name="divulgacao_opcoes" value="Outro">
-                                    <label class="form-check-label" for="outroDivulgacao">Outro (Especifique)</label>
-                                    <input type="text" class="form-control mt-2" id="outroDivulgacaoText"
-                                        name="outro_divulgacao" style="display: none;">
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label">Telefone/WhatsApp *</label>
+                            <input type="tel" class="form-control" id="telefone" required>
                         </div>
-
-                        <!-- Step 3: Needs -->
-                        <div class="form-step" id="step3">
-                            <div class="mb-3">
-                                <label for="urgencia" class="form-label">Nível de Urgência *</label>
-                                <select class="form-select" id="urgencia" name="urgencia" required>
-                                    <option value="" selected disabled>Selecione a urgência</option>
-                                    <option value="baixa">Baixa (Pode esperar algumas semanas)</option>
-                                    <option value="moderada">Moderada (Precisa dentro de 1-2 semanas)</option>
-                                    <option value="urgente">Urgente (Precisa imediatamente)</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="observacoes" class="form-label">Observações Adicionais</label>
-                                <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label">Serviço de Interesse *</label>
+                            <select class="form-select" id="servico" required>
+                                <option value="" selected disabled>Selecione</option>
+                                <option>Manutenção Técnica</option>
+                                <option>Criação de Website</option>
+                                <option>Aulas Particulares</option>
+                                <option>Design Gráfico</option>
+                                <option>Desenvolvimento de Software</option>
+                                <option>Marketing Digital</option>
+                                <option>Serviços para Eventos</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Descreva sua necessidade *</label>
+                            <textarea class="form-control" id="descricao" rows="3" required></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="prevBtn">Anterior</button>
-                    <button type="button" class="btn btn-primary" id="nextBtn">Próximo</button>
-                    <button type="submit" class="btn btn-success" id="submitBtn" form="serviceForm">Enviar
-                        Solicitação</button>
+                    <button type="button" class="btn-outline-glow" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn-glow" form="serviceForm">
+                        <i class="fab fa-whatsapp me-2"></i>Enviar para WhatsApp
+                    </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Success Modal -->
-    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body text-center p-5">
-                    <i class="fas fa-check-circle text-success mb-4" style="font-size: 4rem;"></i>
-                    <h3>Serviço solicitado!</h3>
-                    <p class="mb-4">Em breve entraremos em contacto consigo.</p>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
-                        id="closeSuccessModal">OK</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS Bundle with Popper -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Configuração do carrossel
-        document.addEventListener('DOMContentLoaded', function () {
-            var myCarousel = new bootstrap.Carousel(document.getElementById('serviceCarousel'), {
-                interval: 6000, // Troca a cada 6 segundos
-                wrap: true, // Volta ao primeiro slide após o último
-                //pause: 'hover' // Pausa quando o mouse está sobre o carrossel
-            });
-        });
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 
 </html>

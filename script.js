@@ -1,354 +1,182 @@
- // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
+          // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // AOS Init
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 60, density: { enable: true, value_area: 800 } },
+                color: { value: '#00d4ff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.3, random: true },
+                size: { value: 2, random: true },
+                line_linked: { enable: true, distance: 150, color: '#7c3aed', opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 1.5, direction: 'none', random: true, out_mode: 'out' }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' } },
+                modes: { repulse: { distance: 100 } }
+            },
+            retina_detect: true
+        });
+
+        // Hero Carrossel
+        new Swiper('.swiper-hero', {
+            slidesPerView: 1,
+            loop: true,
+            autoplay: { delay: 5000, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            effect: 'fade',
+            fadeEffect: { crossFade: true }
+        });
+
+        // Navbar Scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Contador Animado
+        const stats = document.querySelectorAll('.stat-number');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const countTo = parseInt(target.getAttribute('data-target'));
+                    let count = 0;
+                    const duration = 2000;
+                    const increment = countTo / (duration / 16);
+                    
+                    const timer = setInterval(() => {
+                        count += increment;
+                        if (count >= countTo) {
+                            target.textContent = countTo;
+                            clearInterval(timer);
+                        } else {
+                            target.textContent = Math.floor(count);
+                        }
+                    }, 16);
+                    
+                    observer.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        stats.forEach(stat => observer.observe(stat));
+
+        // Back to Top
+        const backToTop = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
+            if (window.scrollY > 500) {
+                backToTop.classList.add('active');
             } else {
-                backToTopButton.classList.remove('active');
+                backToTop.classList.remove('active');
             }
         });
         
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
+        backToTop.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-        
-        // Smooth scrolling for navigation links
+
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Animation on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.animate__animated');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    const animation = element.getAttribute('class').split(' ').find(cls => cls.startsWith('animate__'));
-                    element.classList.add(animation);
-                }
-            });
-        };
-        // FAQ Accordion Functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = question.classList.contains('active');
-                
-                // Close all answers
-                document.querySelectorAll('.faq-answer').forEach(ans => {
-                    ans.classList.remove('show');
-                });
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    q.classList.remove('active');
-                });
-                
-                // Open current answer if it was closed
-                if (!isActive) {
-                    question.classList.add('active');
-                    answer.classList.add('show');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
 
-        
-        
-        // Open first FAQ by default
-        document.querySelector('.faq-question').click();
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-
-        // Províncias e Distritos de Moçambique
-        const districtsByProvince = {
-            "Maputo Cidade": ["KaMpfumo", "Nlhamankulu", "KaMaxakeni", "KaMavota", "KaMubukwana", "KaTembe", "KaNyaka"],
-            "Maputo Província": ["Boane", "Magude", "Manhiça", "Marracuene", "Matutuíne", "Moamba", "Namaacha"],
-            "Gaza": ["Bilene", "Chibuto", "Chicualacuala", "Chigubo", "Chókwè", "Guijá", "Mabalane", "Manjacaze", "Massangena", "Massingir", "Xai-Xai"],
-            "Inhambane": ["Funhalouro", "Govuro", "Homoíne", "Inharrime", "Inhassoro", "Jangamo", "Mabote", "Massinga", "Morrumbene", "Panda", "Vilanculos", "Zavala"],
-            "Sofala": ["Beira", "Búzi", "Caia", "Chemba", "Cheringoma", "Chibabava", "Dondo", "Gorongosa", "Machanga", "Maringué", "Muanza", "Nhamatanda"],
-            "Manica": ["Báruè", "Gondola", "Guro", "Machaze", "Macossa", "Manica", "Mossurize", "Sussundenga", "Tambara", "Vanduzi"],
-            "Tete": ["Angónia", "Cahora-Bassa", "Changara", "Chifunde", "Chiuta", "Macanga", "Magoé", "Marávia", "Moatize", "Mutarara", "Tsangano", "Zumbo"],
-            "Zambézia": ["Alto Molócuè", "Chinde", "Derre", "Gilé", "Gurué", "Ile", "Inhassunge", "Lugela", "Maganja da Costa", "Milange", "Mocuba", "Mopeia", "Morrumbala", "Namacurra", "Namarroi", "Nicoadala", "Pebane", "Quelimane"],
-            "Nampula": ["Angoche", "Eráti", "Ilha de Moçambique", "Lalaua", "Larde", "Liúpo", "Malema", "Meconta", "Mecubúri", "Memba", "Mogincual", "Mogovolas", "Moma", "Monapo", "Mossuril", "Muecate", "Murrupula", "Nacala-a-Velha", "Nacala-Porto", "Nampula", "Rapale", "Ribáuè"],
-            "Cabo Delgado": ["Ancuabe", "Balama", "Chiúre", "Ibo", "Macomia", "Mecúfi", "Meluco", "Mocímboa da Praia", "Montepuez", "Mueda", "Muidumbe", "Namuno", "Nangade", "Palma", "Pemba", "Quissanga"],
-            "Niassa": ["Cuamba", "Lago", "Lichinga", "Majune", "Mandimba", "Marrupa", "Maúa", "Mavago", "Mecanhelas", "Mecula", "Metarica", "Muembe", "N'gauma", "Nipepe", "Sanga"]
-        };
-
-        // DOM Elements
-        const provinciaSelect = document.getElementById('provincia');
-        const outraProvinciaContainer = document.getElementById('outraProvinciaContainer');
-        const distritoContainer = document.getElementById('distritoContainer');
-        const distritoSelect = document.getElementById('distrito');
-        const servicoSelect = document.getElementById('servico');
-        const serviceOptions = document.querySelectorAll('.service-options');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const submitBtn = document.getElementById('submitBtn');
-        const formSteps = document.querySelectorAll('.form-step');
-        const stepIndicators = document.querySelectorAll('.step-indicator .step');
-        const outroSuporteCheck = document.getElementById('outroSuporte');
-        const outroSuporteText = document.getElementById('outroSuporteText');
-        const outroDevCheck = document.getElementById('outroDev');
-        const outroDevText = document.getElementById('outroDevText');
-        const outroAcademicoCheck = document.getElementById('outroAcademico');
-        const outroAcademicoText = document.getElementById('outroAcademicoText');
-        const outroDivulgacaoCheck = document.getElementById('outroDivulgacao');
-        const outroDivulgacaoText = document.getElementById('outroDivulgacaoText');
-        const serviceForm = document.getElementById('serviceForm');
-        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
-        const closeSuccessModal = document.getElementById('closeSuccessModal');
-
-        // Current step
-        let currentStep = 0;
-
-        // Initialize form
-        updateForm();
-
-        // Event Listeners
-        provinciaSelect.addEventListener('change', function() {
-            if (this.value === 'outra') {
-                outraProvinciaContainer.style.display = 'block';
-                distritoContainer.style.display = 'none';
-            } else if (this.value) {
-                outraProvinciaContainer.style.display = 'none';
-                distritoContainer.style.display = 'block';
-                
-                // Clear and populate districts
-                distritoSelect.innerHTML = '<option value="" selected disabled>Selecione seu distrito</option>';
-                districtsByProvince[this.value].forEach(district => {
-                    const option = document.createElement('option');
-                    option.value = district;
-                    option.textContent = district;
-                    distritoSelect.appendChild(option);
-                });
-            } else {
-                outraProvinciaContainer.style.display = 'none';
-                distritoContainer.style.display = 'none';
-            }
-        });
-
-        servicoSelect.addEventListener('change', function() {
-            // Hide all options first
-            serviceOptions.forEach(option => {
-                option.style.display = 'none';
-            });
-            
-            // Show selected service options
-            if (this.value) {
-                document.getElementById(`${this.value}Options`).style.display = 'block';
-            }
-        });
-
-        // Other service options text fields
-        outroSuporteCheck.addEventListener('change', function() {
-            outroSuporteText.style.display = this.checked ? 'block' : 'none';
-            if (!this.checked) outroSuporteText.value = '';
-        });
-
-        outroDevCheck.addEventListener('change', function() {
-            outroDevText.style.display = this.checked ? 'block' : 'none';
-            if (!this.checked) outroDevText.value = '';
-        });
-
-        outroAcademicoCheck.addEventListener('change', function() {
-            outroAcademicoText.style.display = this.checked ? 'block' : 'none';
-            if (!this.checked) outroAcademicoText.value = '';
-        });
-
-        outroDivulgacaoCheck.addEventListener('change', function() {
-            outroDivulgacaoText.style.display = this.checked ? 'block' : 'none';
-            if (!this.checked) outroDivulgacaoText.value = '';
-        });
-
-        // Navigation buttons
-        prevBtn.addEventListener('click', prevStep);
-        nextBtn.addEventListener('click', nextStep);
-        closeSuccessModal.addEventListener('click', () => location.reload());
-
-        // Form submission
-        serviceForm.addEventListener('submit', function(e) {
+        // Form Submit para WhatsApp
+        document.getElementById('serviceForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            submitForm();
+            
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const servico = document.getElementById('servico').value;
+            const descricao = document.getElementById('descricao').value;
+            
+            const mensagem = `*🚀 NOVA SOLICITAÇÃO - JP BUSINESS*%0A%0A` +
+                            `👤 *Nome:* ${nome}%0A` +
+                            `📞 *Telefone:* ${telefone}%0A` +
+                            `🔧 *Serviço:* ${servico}%0A` +
+                            `📝 *Descrição:* ${descricao}%0A%0A` +
+                            `_Enviado pelo site JP Business_`;
+            
+            window.open(`https://wa.me/258864005964?text=${mensagem}`, '_blank');
+            
+            bootstrap.Modal.getInstance(document.getElementById('solicitarModal')).hide();
+            document.getElementById('serviceForm').reset();
         });
 
-        function updateForm() {
-            // Hide all steps
-            formSteps.forEach(step => {
-                step.classList.remove('active');
+        // Fechar modal anterior
+        document.querySelectorAll('[data-bs-target="#solicitarModal"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const currentModal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
+                if (currentModal) currentModal.hide();
             });
-            
-            // Show current step
-            formSteps[currentStep].classList.add('active');
-            
-            // Update step indicators
-            stepIndicators.forEach((indicator, index) => {
-                indicator.classList.remove('active', 'completed');
-                if (index < currentStep) {
-                    indicator.classList.add('completed');
-                } else if (index === currentStep) {
-                    indicator.classList.add('active');
+        });
+
+        console.log('%c🔥 JP BUSINESS • PREMIUM EXPERIENCE • 2024', 'font-size: 14px; background: linear-gradient(135deg, #00d4ff, #7c3aed); color: white; padding: 8px 16px; border-radius: 30px; font-weight: bold;');
+        console.log('%c👨‍💻 Fundador: Jacinto de Manave Jacinto Patrício', 'font-size: 12px; color: #00d4ff;');
+
+            document.addEventListener('DOMContentLoaded', function() {
+        // Animação de entrada dos cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
-            
-            // Update buttons
-            if (currentStep === 0) {
-                prevBtn.style.display = 'none';
-            } else {
-                prevBtn.style.display = 'block';
-            }
-            
-            if (currentStep === formSteps.length - 1) {
-                nextBtn.style.display = 'none';
-                submitBtn.style.display = 'block';
-            } else {
-                nextBtn.style.display = 'block';
-                submitBtn.style.display = 'none';
-            }
-        }
+        }, { threshold: 0.2 });
 
-        function nextStep() {
-            if (validateStep(currentStep)) {
-                currentStep++;
-                updateForm();
-            }
-        }
+        document.querySelectorAll('.mission-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
 
-        function prevStep() {
-            currentStep--;
-            updateForm();
-        }
-
-        function validateStep(step) {
-            let isValid = true;
-            
-            if (step === 0) {
-                // Validate personal data
-                if (!document.getElementById('nomeCompleto').value) {
-                    alert('Por favor, preencha seu nome completo');
-                    isValid = false;
-                } else if (!document.getElementById('email').value || 
-                          !document.getElementById('email').value.includes('@')) {
-                    alert('Por favor, insira um e-mail válido');
-                    isValid = false;
-                } else if (!document.getElementById('telefone').value) {
-                    alert('Por favor, insira seu telefone');
-                    isValid = false;
-                } else if (!provinciaSelect.value) {
-                    alert('Por favor, selecione sua província');
-                    isValid = false;
-                } else if (provinciaSelect.value !== 'outra' && !distritoSelect.value) {
-                    alert('Por favor, selecione seu distrito');
-                    isValid = false;
-                } else if (provinciaSelect.value === 'outra' && !document.getElementById('outraProvincia').value) {
-                    alert('Por favor, especifique sua província');
-                    isValid = false;
+        // Contador animado para 2030
+        const statValues = document.querySelectorAll('.stat-value');
+        const statObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    if (target.textContent === '2030') {
+                        let count = 2024;
+                        const timer = setInterval(() => {
+                            count++;
+                            target.textContent = count;
+                            if (count >= 2030) clearInterval(timer);
+                        }, 40);
+                    }
+                    statObserver.unobserve(target);
                 }
-            } else if (step === 1) {
-                // Validate services
-                if (!servicoSelect.value) {
-                    alert('Por favor, selecione um serviço');
-                    isValid = false;
-                } else {
-                    // Validate service-specific options
-                    const service = servicoSelect.value;
-                    if (service === 'desenvolvimento' && !document.querySelector('input[name="tipoSolucao"]:checked')) {
-                        alert('Por favor, selecione o tipo de solução');
-                        isValid = false;
-                    } else if (service === 'assistencia' && !document.querySelector('input[name="tipoAssistencia"]:checked')) {
-                        alert('Por favor, selecione o tipo de assistência');
-                        isValid = false;
-                    }
-                }
-            }
-            
-            return isValid;
-        }
+            });
+        }, { threshold: 0.5 });
 
-        function submitForm() {
-            if (validateStep(currentStep)) {
-                // Collect form data
-                const formData = {
-                    nomeCompleto: document.getElementById('nomeCompleto').value,
-                    email: document.getElementById('email').value,
-                    telefone: document.getElementById('telefone').value,
-                    provincia: provinciaSelect.value === 'outra' ? document.getElementById('outraProvincia').value : provinciaSelect.value,
-                    distrito: provinciaSelect.value === 'outra' ? '' : distritoSelect.value,
-                    servico: servicoSelect.value,
-                    urgencia: document.getElementById('urgencia').value,
-                    observacoes: document.getElementById('observacoes').value,
-                    detalhes: {}
-                };
+        statValues.forEach(stat => statObserver.observe(stat));
 
-                // Add service-specific details
-                const service = servicoSelect.value;
-                if (service === 'suporte') {
-                    formData.detalhes.opcoes = Array.from(document.querySelectorAll('input[name="suporte_opcoes"]:checked')).map(el => el.value);
-                    if (outroSuporteCheck.checked) {
-                        formData.detalhes.outro = outroSuporteText.value;
-                    }
-                } else if (service === 'desenvolvimento') {
-                    formData.detalhes.tipo = document.querySelector('input[name="tipoSolucao"]:checked').value;
-                    if (outroDevCheck.checked) {
-                        formData.detalhes.outro = outroDevText.value;
-                    }
-                } else if (service === 'aulas') {
-                    formData.detalhes.opcoes = Array.from(document.querySelectorAll('input[name="aulas_opcoes"]:checked')).map(el => el.value);
-                } else if (service === 'assistencia') {
-                    formData.detalhes.tipo = document.querySelector('input[name="tipoAssistencia"]:checked').value;
-                    if (outroAcademicoCheck.checked) {
-                        formData.detalhes.outro = outroAcademicoText.value;
-                    }
-                } else if (service === 'divulgacao') {
-                    formData.detalhes.opcoes = Array.from(document.querySelectorAll('input[name="divulgacao_opcoes"]:checked')).map(el => el.value);
-                    if (outroDivulgacaoCheck.checked) {
-                        formData.detalhes.outro = outroDivulgacaoText.value;
-                    }
-                }
-
-                // Log the data to console (for testing)
-                console.log('Dados do formulário:', formData);
-
-                // Here you would normally send the data to your API
-                // Example using fetch:
-                /*
-                fetch('https://sua-api.com/solicitacao', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    showSuccess();
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    alert('Ocorreu um erro ao enviar a solicitação. Por favor, tente novamente.');
-                });
-                */
-
-                // For testing purposes, we'll just show success
-                showSuccess();
-            }
-        }
-
-        function showSuccess() {
-            // Hide the form modal
-            const solicitarModal = bootstrap.Modal.getInstance(document.getElementById('solicitarModal'));
-            solicitarModal.hide();
-            
-            // Show success modal
-            successModal.show();
-        }
+        console.log('%c💎 JP BUSINESS • MISSÃO, VISÃO E VALORES', 'font-size: 14px; background: linear-gradient(135deg, #00d4ff, #7c3aed); color: white; padding: 8px 16px; border-radius: 30px;');
+    });
